@@ -1,0 +1,806 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+:root {
+    --black: #000;
+    --blue: #00ebd4;
+    --dark-blue: #00c9b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--blue);
+    font-family: 'Share Tech', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+#main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--blue);
+    backdrop-filter: blur(10px);
+}
+
+#main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+#main-nav li {
+    margin: 0 15px;
+}
+
+#main-nav a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+    padding: 5px 10px;
+    position: relative;
+}
+
+#main-nav a:hover,
+#main-nav a.active {
+    color: #fff;
+    text-shadow: 0 0 10px var(--blue);
+}
+
+#main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+#main-nav a:hover::after,
+#main-nav a.active::after {
+    width: 100%;
+}
+
+/* Container and Pages */
+.container {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 20px;
+}
+
+.page {
+    display: none;
+    min-height: 80vh;
+    padding: 20px 0;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.profile-pic-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--blue);
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 235, 212, 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-pic-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 235, 212, 0.5);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.profile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.profile-pic-container:hover .profile-overlay {
+    opacity: 1;
+}
+
+.profile-overlay i {
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.profile-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--blue), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-info p {
+    font-size: 1.2rem;
+    color: rgba(0, 235, 212, 0.8);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: rgba(0, 235, 212, 0.8);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Share Tech', sans-serif;
+    color: var(--blue);
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: pulse 2s infinite;
+}
+
+#identity-results, #resume, #loading-alpha-div, #loadingH1, #loadingMessage2, #message {
+    margin-top: 20px;
+    font-family: 'Share Tech', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--blue);
+}
+
+#loadingH1 {
+    animation: pulse 2s infinite;
+}
+
+i {
+    font-size: 24px;
+    color: var(--blue);
+    margin-right: 10px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+         opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.cursor:after {
+    content: "_";
+    opacity: 0;
+    animation: cursor 1s infinite;
+}
+
+.sign:before {
+    content: "> ";
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Resume Elements */
+#loading-alpha-div, .img-div {
+    display: none;
+}
+
+#loadingMessage2 {
+    display: none;
+}
+
+.sub-item {
+    margin-top: 15px;
+    margin-left: 40px;
+    font-size: 18px;
+    color: var(--blue);
+}
+
+.inline {
+    display: inline;
+    margin-left: 10px;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.portfolio-item {
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 235, 212, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.portfolio-item:hover::before {
+    left: 100%;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 235, 212, 0.2);
+    border-color: var(--dark-blue);
+}
+
+.portfolio-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--blue);
+}
+
+.portfolio-item h3 {
+    color: var(--blue);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.portfolio-item p {
+    color: rgba(0, 235, 212, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.portfolio-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.portfolio-tech span {
+    background: rgba(0, 235, 212, 0.1);
+    color: var(--blue);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 235, 212, 0.3);
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 235, 212, 0.15);
+    border-color: var(--dark-blue);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 235, 212, 0.3);
+}
+
+.skill-header i {
+    font-size: 2rem;
+}
+
+.skill-header h3 {
+    color: var(--blue);
+    margin: 0;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(0, 235, 212, 0.2);
+    color: rgba(0, 235, 212, 0.9);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.skill-category li:hover {
+    color: var(--blue);
+    transform: translateX(10px);
+}
+
+.skill-category li:last-child {
+    border-bottom: none;
+}
+
+.skill-category li i {
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+/* Education Section */
+.education-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--blue);
+}
+
+.education-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.education-year {
+    width: 60px;
+    height: 60px;
+    background: var(--blue);
+    color: var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.education-content {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    padding: 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.education-content:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(0, 235, 212, 0.15);
+}
+
+.education-content h3 {
+    color: var(--blue);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+}
+
+.education-content p {
+    color: rgba(0, 235, 212, 0.8);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.education-desc {
+    color: rgba(0, 235, 212, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    height: fit-content;
+}
+
+.contact-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--blue);
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px rgba(0, 235, 212, 0.3);
+}
+
+.contact-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-card h3 {
+    color: var(--blue);
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+}
+
+.contact-card p {
+    color: rgba(0, 235, 212, 0.8);
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    margin-bottom: 25px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 235, 212, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--blue);
+    color: var(--black);
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    background: linear-gradient(135deg, rgba(0, 235, 212, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border: 1px solid var(--blue);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue);
+    font-size: 1.2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: 'Share Tech', sans-serif;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    padding-left: 45px;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 235, 212, 0.3);
+    border-color: var(--dark-blue);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(0, 235, 212, 0.6);
+}
+
+.contact-form button {
+    background: var(--blue);
+    color: var(--black);
+    border: none;
+    padding: 15px 35px;
+    font-family: 'Share Tech', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.contact-form button:hover {
+    background: var(--dark-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 235, 212, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(0, 235, 212, 0.3);
+    color: rgba(0, 235, 212, 0.7);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    object-fit: cover;
+}
+
+.footer-info h4 {
+    color: var(--blue);
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.footer-info p {
+    color: rgba(0, 235, 212, 0.7);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #main-nav li {
+        margin: 5px 0;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .container {
+        margin-top: 120px;
+        padding: 15px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-timeline::before {
+        left: 25px;
+    }
+    
+    .education-year {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    #identity-results, #resume, #loadingH1, #loadingMessage2, #message {
+        font-size: 18px;
+    }
+    
+    .sub-item {
+        font-size: 16px;
+        margin-left: 20px;
+    }
+    
+    .profile-pic-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-info h2 {
+        font-size: 2rem;
+    }
+}
+/* Add this to your existing CSS file */
+
+/* Security icon styling */
+#security-span {
+    font-size: 24px;
+    color: var(--blue);
+    margin-right: 10px;
+}
+
+/* Make sure the web security element is properly styled */
+#web-security {
+    margin-top: 15px;
+}
+
+/* Ensure all icons are properly aligned */
+#front-end-span,
+#cms-span,
+#design-span,
+#security-span {
+    vertical-align: middle;
+}

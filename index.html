@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husnain - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home" class="page active">
+            <div class="profile-header">
+                <div class="profile-pic-container">
+                    <img src="husnain.png" 
+                         alt="Husnain Ali" class="profile-pic" id="profilePic">
+                    <div class="profile-overlay">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2>I Am Husnain Ali</h2>
+                    <p>Front End Developer | WordPress Developer | Designer | Python Developer | Back End Developer | Web Security analyzer </p>
+                </div>
+            </div>
+
+            <div class="img-container">
+                <h1 id="loadingH1"><span><i class="fas fa-cogs"></i></span> RUNNING IDENTITY PROTOCOL<span id="loading">.</span></h1>
+                <div id="identity-results">
+                    <h1 id="greeting"></h1>
+                    <p id="message"></p>
+                </div>
+                <h3 id="loadingMessage2">LOADING RESUME<span id="alpha-loading"></span></h3>
+            </div>
+            <div id="resume">
+                <h3 id="name"></h3>
+                <h3 id="alias"></h3> 
+                <h3 id="occupation"></h3>
+                <br>
+                <i id="front-end-span"></i><h3 id="front-end" class="inline"></h3>
+                <h4 id="PHY-frameworks" class="sub-item"></h4>
+                <h4 id="PHY-libs" class="sub-item"></h4>
+                <h4 id="css-frameworks" class="sub-item"></h4>
+                <h4 id="css-pre" class="sub-item"></h4>
+                <h4 id="front-end-animation" class="sub-item"></h4>
+                <br>
+                <i id="cms-span"></i><h3 id="CMS-development" class="inline"></h3>
+                <h4 id="wordpress" class="sub-item"></h4>
+                <br>
+                <i id="design-span"></i><h3 id="design" class="inline"></h3>
+                <h4 id="web-design" class="sub-item"></h4>
+                <h4 id="branding" class="sub-item"></h4>
+                <h4 id="design-animation" class="sub-item"></h4>
+                <br>
+                <i id="security-span"></i><h3 id="web-security" class="inline"></h3>
+            </div>
+        </section>
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="page">
+            <div class="section-header">
+                <h1><i class="fas fa-briefcase"></i> PORTFOLIO</h1>
+                <p>My recent projects and works</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Python Project</h3>
+                    <p>Data analysis and visualization using Python</p>
+                    <div class="portfolio-tech">
+                        <span>Heart Disease Prediction</span>
+                        <span>Fake News Detection</span> 
+                        <span>Greocry store System</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3>WordPress Project</h3>
+                    <p>Custom WordPress theme with responsive design</p>
+                    <div class="portfolio-tech">
+                        <span>Online News Portal</span>
+                        <span>eCommerce Website</span>
+                    
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Cyber Security Project</h3>
+                    <p>Web security analysis and vulnerability assessment</p>
+                    <div class="portfolio-tech">
+                        <span>tryhackme rooms</span>
+                        <span>Hack The Box challenges</span>
+                        <span>wifi penetration testing</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Animation Project</h3>
+                    <p>Interactive animations using HTML5 Canvas and SVG</p>
+                    <div class="portfolio-tech">
+                        <span>Canvas</span>
+                        <span>SVG</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="page">
+            <div class="section-header">
+                <h1><i class="fas fa-tools"></i> SKILLS</h1>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Development</h3>
+                    </div>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js-square"></i> JavaScript</li>
+                        <li><i class="fab fa-angular"></i>ML</li>
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fa fa-laptop"></i> Front-End Development</li>
+                        <li><i class="fas fa-code"></i> Back-End Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fab fa-wordpress"></i>
+                        <h3>WordPress Development</h3>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-paint-brush"></i> Custom Theme Development</li>
+                        <li><i class="fas fa-puzzle-piece"></i> Plugin Development</li>
+                        <li><i class="fas fa-shopping-cart"></i> WooCommerce</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-pencil-alt"></i>
+                        <h3>Web Security</h3>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-shield-alt"></i> Ethical Hacking</li>
+                        <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
+                        <li><i class="fas fa-lock"></i> Penetration Testing</li>
+                        <li><i class="fas fa-user-shield"></i> Web Application Security</li>
+                        <li><i class="fas fa-fingerprint"></i> Network Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="page">
+            <div class="section-header">
+                <h1><i class="fas fa-graduation-cap"></i> EDUCATION</h1>
+                <p>My academic background and certifications</p>
+            </div>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-year">2026</div>
+                    <div class="education-content">
+                        <h3>Bachelor of Computer Science</h3>
+                        <p>Virtual University of Pakistan</p>
+                        <span class="education-desc">Graduated with honors in Computer Science and Software Engineering</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-year">2025</div>
+                    <div class="education-content">
+                        <h3>Python Course </h3>
+                        <p>Techknik Nest Pvt Ltd</p>
+                        <span class="education-desc">Completed an intensive course on Python programming and data analysis</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-year">2023</div>
+                    <div class="education-content">
+                        <h3>Networking Course</h3>
+                        <p>Cisco Networking Academy</p>
+                        <span class="education-desc">Completed a comprehensive course on web security and ethical hacking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="page">
+            <div class="section-header">
+                <h1><i class="fas fa-envelope"></i> CONTACT</h1>
+                <p>Get in touch with me</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-avatar">
+                            <img src="husnain.png" 
+                                 alt="Husnain Ali" class="contact-pic">
+                        </div>
+                        <h3>Husnain Ali</h3>
+                        <p> Developer</p>
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i>husnain45605@Gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 3076606145</p>
+                            <p><i class="fas fa-map-marker-alt"></i> PAKISTAN, PUNJAB</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/husnain-ali2"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/husnain-ali-904671357"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/alibaba4432/"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-codepen"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-profile">
+                <img src="husnain.png" 
+                     alt="Husnain Ali" class="footer-pic">
+                <div class="footer-info">
+                    <h4>Husnain Ali</h4>
+                    <p>Developer</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Powered by Husnain. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
